@@ -1,0 +1,2 @@
+/opt/xensource/libexec/xen-cmdline --set-xen dom0_mem=<nn>M,max:<nn>M
+exute above command on node by mention desire memory
