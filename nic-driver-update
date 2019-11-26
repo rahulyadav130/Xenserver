@@ -1,0 +1,13 @@
+# ethtool -i eth0 # will show current patch version
+
+Download the nic driver details from citrix portal
+1. copy the downloaded package on poolmaster
+2. unzip the packages.
+#excute the below command-
+rpm -ivh bnx2x-1.714.6-1.src.rpm
+mount -l bnx2x.iso /mnt
+cd /mnt/
+./install
+depmod -a 'uname -r'
+sh /boot/*cmd
+then reboot & check driver verstion.
