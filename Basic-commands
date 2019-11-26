@@ -1,0 +1,49 @@
+xe help --all|more. Show a list of XenServer CLI commands.
+xsconsole. Runs up the XenServer text based console.
+xe host-dmesg
+xe-toolstack-restart. Restarts the XenServer management tools.
+ls –l. List files in a Directory.
+
+netstat –s
+Networking statistics
+
+iostat -d 2 6
+Storage traffic stats
+
+
+VM-list
+xe vm-list
+
+VDI-list
+XE vdi-list
+
+SR list
+XE sr-list
+
+
+Logs###
+tail –f /var/log/xensource.log
+tail –f /var/log/xensource.log | grep "stop"
+
+BAckup#
+xe-backup-metadata -d –u [uuid of SR]
+
+
+tcpdump –i [inf] –vvv –w [filename]
+
+# top
+xentop
+List top Xen processes
+
+
+mpstat 5
+Processor stats in Dom0
+
+vmstat 2
+Virtual memory in Dom0
+
+list_domains
+Lists VMs that are running
+
+pvs
+Show local and remote LVHD SRs
