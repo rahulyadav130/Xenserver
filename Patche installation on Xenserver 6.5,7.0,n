@@ -1,0 +1,19 @@
+Why we need to install Xenserver patches ?
+  many bugs fixed in particular xenserver version and devloper publiushed new code in the patches, that we need to just apply in infra.
+  
+  
+  # Note- first we need to install patches on master node of pool and later worker node.
+  
+  
+  
+  1. Download the patches from citrix portal for required xenserver version.
+  2. Copy the downloaded XenServer update to the XenServer host. If in a pool, apply the hotfix to the pool master. Tools such as WinSCP can allow for files to be copied from a Microsoft Windows system to a Linux system
+  from widnwos machine we can use winscp to copy patches.
+  3. unzip all the patches.
+  4. xe patch-upload file-name=<Path of file and name>
+  Example- xe patch-upload file-name=XS56ESP2006.xsupdate 
+  5. above command will return a uuid that we need tocopy -
+  6 xe patch-list | more ######### .  this is only for check.
+  7. xe patch-apply uuid=<UUID of the patch> host-uuid=<UUID of the host>
+  # above setep, uuid= the uuid which we copied when upload patches, host-uuid- node uuid.
+  
