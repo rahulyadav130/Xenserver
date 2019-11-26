@@ -1,6 +1,9 @@
 
 
 xe help --all|more. Show a list of XenServer CLI commands.
+/etc/init.d/xapi 
+Check the status of XAPI SERVERICE
+
 xsconsole. Runs up the XenServer text based console.
 xe host-dmesg
 xe-toolstack-restart. Restarts the XenServer management tools.
