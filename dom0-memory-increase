@@ -1,2 +1,11 @@
+
+# how to check dom0 Memory in Xenserver
+/opt/xensource/libexec/xen-cmdline --get-xen dom0_mem
+
+# how to set dom0 menory in Xenserver-
+
 /opt/xensource/libexec/xen-cmdline --set-xen dom0_mem=<nn>M,max:<nn>M
 exute above command on node by mention desire memory
+For exmple you want you to set dom0 memory as 8gb then enter below command
+
+/opt/xensource/libexec/xen-cmdline --set-xen dom0_mem=8192M,max:8192M
