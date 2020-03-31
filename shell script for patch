@@ -1,0 +1,32 @@
+#!/bin/bash
+patches="/root/patch"
+pinstalled=`xe patch-list params=name-label | awk {'print $5'}`
+$patches-name
+uuid="177d3b24-6e5b-497b-a769-4bdef50cfa4d"
+hostname=`hostname`
+#for i in ` ls *.zip`; do echo $i; done;
+echo "steps1. Download the patches and copy in tho $patches directory"
+echo "Hostname ::  "$hostname
+echo -n "Are you sure! you want to install Patch on $hostname    (y/n)? "
+read answer
+cd $patches
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    cd $patches
+    for i in ls *.zip;
+        do
+        unzip $i;
+        mv $i  /tmp
+        echo "Lets, upload the patches files in xenserver hosts"
+    done;
+    for nameoffile in `ls`;
+        do
+        fu=`xe patch-upload file-name=$nameoffile`
+        echo $fu
+        pa=`xe patch-apply uuid=$fu host-uuid=$uuid`
+        echo $pa
+    done;
+    echo "Congrats, Below patches has been installed on server $hostname"
+    echo $pinstalled
+else
+    echo No
+fi
